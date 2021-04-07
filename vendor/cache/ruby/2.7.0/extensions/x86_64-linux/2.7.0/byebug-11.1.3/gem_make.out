@@ -1,0 +1,25 @@
+current directory: /app/vendor/cache/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+/usr/local/bin/ruby -I /usr/local/lib/ruby/2.7.0 -r ./siteconf20210406-1-1ia6dhj.rb extconf.rb
+creating Makefile
+
+current directory: /app/vendor/cache/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" clean
+make: Warning: File 'Makefile' has modification time 1.4 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /app/vendor/cache/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR="
+make: Warning: File 'Makefile' has modification time 1.4 s in the future
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /app/vendor/cache/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" install
+make: Warning: File 'byebug.so' has modification time 1.4 s in the future
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20210406-1-qp0m4k/byebug
+make: warning:  Clock skew detected.  Your build may be incomplete.
