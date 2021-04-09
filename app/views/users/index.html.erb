@@ -12,12 +12,14 @@
                 <% end %>
                 <%= link_to user_path(user), class: "black-color no-text-decoration",
                     title: user.name do %>
-                    <strong><%= user.name %></strong>
+                    <strong><%= user.username %></strong>
                 <% end %>
             </div>
-            <div class="follo">
-                フォロー
-            </div>
+            <% if user != current_user %>
+              <div class="follo">
+                  フォロー
+              </div>
+            <% end %>
         </li>
     <% end %>
   </ul>
