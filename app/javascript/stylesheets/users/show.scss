@@ -31,3 +31,11 @@
     cursor: pointer;
   }
 }
+
+.btn-follow {
+  &:hover {
+    color: #007bff;
+    background-color: #fff;
+    border-color: #007bff;
+  }
+}

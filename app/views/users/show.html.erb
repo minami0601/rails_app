@@ -5,6 +5,21 @@
     </div>
     <div class="col-md-8">
       <div class="row">
+        <div class="follower">
+            <%= link_to followers_user_path(@user.id) do %>
+              <p style="color: black;">フォロワー<span  id="follower"><%= @user.followers.count %></span>人</p>
+            <% end %>
+        </div>
+        <div class="follow ml-3">
+            <%= link_to following_user_path(@user.id) do %>
+              <p style="color: black;">フォロー <span id="follow"><%= @user.following.count %></span>人</p>
+            <% end %>
+        </div>
+        <div class="ml-5">
+            <%= render "follow_form" %>
+        </div>    
+      </div>    
+      <div class="row mt-3">
         <h1><%= @user.username %></h1>
 
         <% if @user == current_user %>
@@ -29,7 +44,7 @@
           </div>
         </div>
       </div>
-        <div class="row">
+      <div class="row">
             <p>
                 <%= @user.name %>
             </p>

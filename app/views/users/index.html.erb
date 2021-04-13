@@ -15,11 +15,9 @@
                     <strong><%= user.username %></strong>
                 <% end %>
             </div>
-            <% if user != current_user %>
-              <div class="follo">
-                  フォロー
-              </div>
-            <% end %>
+            <div class="text-left">
+              <%= render "follow_form_index", user: user%>
+            </div>
         </li>
     <% end %>
   </ul>

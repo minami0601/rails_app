@@ -89,3 +89,39 @@
   color: #262626;
   font-size: 20px;
 }
+.js-team_member {
+  border-top: 1px solid #333;
+  padding: 20px 0;
+}
+.member_delete {
+  font-weight: bold;
+  cursor: pointer;
+}
+.recipe__title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.recipe {
+  display: flex;
+  width: 100%;
+  .recipe__body {
+    margin: 15px;
+    width: 20%;
+    margin: 20px;
+    border-radius: 4px;
+      &:not(:first-child) {
+    margin-left: 20px;
+  }
+    .recipe__img {
+      text-align: center;
+      margin: 0 auto;
+      img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+    .recipe__text {
+      margin-top: 10px;
+    }
+  }
+}

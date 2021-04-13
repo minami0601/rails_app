@@ -2,7 +2,7 @@
   <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
     <div class="card">
       <div class="card-header">
-        投稿画面
+        レシピ投稿画面
       </div>
       <div class="card-body">
         <%= form_with model: @post, local: true,  class: "upload-images p-0 border-0" do |f| %>
@@ -11,7 +11,7 @@
               <%= image_tag avatar_url(current_user), class: "post-profile-icon" %>
             </div>
             <div class="col pl-0">
-              <%= f.text_field :caption, class: "form-control border-0", placeholder: "キャプションを書く" %>
+              <%= f.text_field :caption, class: "form-control border-0", placeholder: "料理名" %>
             </div>
           </div>
           <div class="mb-3">
@@ -21,6 +21,20 @@
             <% end %>
 
           </div>
+          <div id="team_members_box">
+          <p><strong>作り方</strong></p>
+            <%= f.fields_for :post_items do |m| %>
+              <div class="js-team_member my-5" id="add_member_<%= m.index%>">
+                <p>レシピ</p>
+                <%= m.text_field :text, class: 'form-control border-0 my-3', placeholder: "レシピを書いてね" %>
+                <%= m.file_field :img, class: 'form-control border-0 my-3' %>
+                <%= m.check_box :_destroy, class: 'display-none'%>
+                <span class="member_delete data-id="<%= m.index%>" data-default="default"">Delete</span>
+              </div>
+            <% end %>
+            </div>
+            <button type="button" id="add_item_button" class="btn btn-primary">レシピを追加</button>
+
           <%= f.submit "投稿する", class: "btn btn-primary" %>
         <% end %>
       </div>
