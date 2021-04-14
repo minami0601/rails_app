@@ -10,6 +10,9 @@
   &__mainLogo {
     background-repeat: no-repeat;
     background-image: url("~logo.png");
+    height: 76px;
+    background-size: cover;
+    background-position: center;
   }
   &-nav {
     & > li {
