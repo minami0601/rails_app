@@ -10,10 +10,10 @@ Rails.application.routes.draw do
     end
   end
 
-   resources :relationships, only: %i(create destroy)
+  resources :relationships, only: %i(create destroy)
 
-
-  resources :posts, only: %i(new create index show destroy) do
+  get 'search' => 'posts#search'
+  resources :posts, only: %i(new create index show destroy search) do
     resources :photos, only: %i(create)
     resources :post_items, only: %i(create)
   end

@@ -1,3 +1,9 @@
+<div class="search-form">
+  <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
 <% @posts.each do |post| %>
   <div class="col-md-8 col-md-2 mx-auto">
     <div class="card-wrap">
@@ -10,6 +16,9 @@
             title: post.user.name do %>
             <strong><%= post.user.name %></strong>
           <% end %>
+          <div class="ml-auto">
+            <strong><%= post.caption %></strong>
+          </div>
           <% if post.user_id == current_user.id %>
             <%= link_to post_path(post), method: :delete, class: "ml-auto mx-0 my-auto" do %>
               <div class="delete-post-icon">

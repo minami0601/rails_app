@@ -39,12 +39,18 @@ class PostsController < ApplicationController
         redirect_to root_path
     end
 
-  private
-    def post_params
-      params.require(:post).permit(:caption, photos_attributes: [:image], post_items_attributes: [:text, :img]).merge(user_id: current_user.id)
+    def search
+        @posts = Post.search(params[:keyword]).order('created_at DESC')
+        @keyword = params[:keyword]
+        render "index"
     end
 
-    def set_post
-      @post = Post.find_by(id: params[:id])
-    end
+    private
+        def post_params
+            params.require(:post).permit(:caption, photos_attributes: [:image], post_items_attributes: [:text, :img]).merge(user_id: current_user.id)
+        end
+
+        def set_post
+            @post = Post.find_by(id: params[:id])
+        end
 end
