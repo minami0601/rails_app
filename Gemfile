@@ -52,3 +52,8 @@ gem 'carrierwave', '~> 2.0'
 gem "mini_magick"
 
 gem 'font-awesome-sass'
+
+gem 'dotenv-rails'
+
+gem 'gon'
+gem 'geocoder'

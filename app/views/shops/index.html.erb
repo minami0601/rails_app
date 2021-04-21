@@ -1,0 +1,49 @@
+<% @shops.each do |shop| %>
+<div class="col-md-8 col-md-2 mx-auto">
+    <div class="card-wrap">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+            <%= link_to user_path(shop.user), class: "no-text-decoration" do %>
+                <%= image_tag avatar_url(shop.user), class: "shop-profile-icon" %>
+            <% end %>
+            <%= link_to user_path(shop.user), class: "black-color no-text-decoration",
+                title: shop.user.name do %>
+                <strong><%= shop.user.name %></strong>
+            <% end %>
+            <div class="ml-auto">
+                <strong><%= shop.name %></strong>
+            </div>
+            <% if shop.user_id == current_user.id %>
+                <%= link_to shop_path(shop), method: :delete, class: "ml-auto mx-0 my-auto" do %>
+                <div class="delete-shop-icon">
+                </div>
+                <% end %>
+            <% end %>        
+            </div>
+
+            <%= link_to(shop_path(shop)) do %>
+            <%= image_tag shop.img.url(:medium), class: "card-img-top" %>
+            <% end %>
+            <div class="card-body">
+            <div class="row parts">
+                <%= link_to "", "#", class: "love" %>
+                <%= link_to "", "#", class: "comment" %>
+            </div>
+            <div><strong>「いいね！」10件</strong></div>
+            <div>
+                <span><strong><%= shop.user.name %></strong></span>
+                <span><%= shop.address %></span>
+                <%= link_to time_ago_in_words(shop.created_at).upcase + "前", shop_path(shop), class: "shop-time no-text-decoration" %>
+                <hr>
+                <div class="row parts">
+                <form action="#" class="w-100">
+                    <div>
+                    <textarea class="form-control comment-input border-0" placeholder="コメント..." rows="1"></textarea>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>

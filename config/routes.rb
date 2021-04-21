@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'maps/index'
   devise_for :users,
     controllers: { registrations: 'registrations' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -9,7 +10,8 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-
+  resources :maps, only: [:index]
+  resources :shops, only: %i(index new create show)
   resources :relationships, only: %i(create destroy)
 
   get 'search' => 'posts#search'

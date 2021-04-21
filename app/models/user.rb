@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
+  has_many :shops, dependent: :destroy
 
   mount_uploader :profile_photo, ImageUploader
 
